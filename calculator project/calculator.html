@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="calculator_style.css">
+        <script src= 
+"https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.js"
+        integrity= 
+"sha512-BbVEDjbqdN3Eow8+empLMrJlxXRj5nEitiCAK5A1pUr66+jLVejo3PmjIaucRnjlB0P9R3rBUs3g5jXc8ti+fQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script> 
+    <script src= 
+"https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.min.js"
+        integrity= 
+"sha512-iphNRh6dPbeuPGIrQbCdbBF/qcqadKWLa35YPVfMZMHBSI6PLJh1om2xCTWhpVpmUyb4IvVS9iYnnYMkleVXLA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script> 
+    </head>
+        <body>
+            <div class="holder">
+                <input class="answer" type="text" id="result">
+                <div class="operations">
+                    <button onclick="dis('7')" onkeydown="myFunction(event)">7</button>
+                    <button onclick="dis('8')"
+                    onkeydown="myFunction(event)">8</button>
+                    <button onclick="dis('9')"
+                    onkeydown="myFunction(event)">9</button>
+                    <button class="right" onclick="dis('/')"
+                    onkeydown="myFunction(event)">/</button>
+                    <button onclick="dis('4')"
+                    onkeydown="myFunction(event)">4</button>
+                    <button onclick="dis('5')"
+                    onkeydown="myFunction(event)">5</button>
+                    <button onclick="dis('6')"
+                    onkeydown="myFunction(event)">6</button>
+                    <button class="right" onclick="dis('*')"
+                    onkeydown="myFunction(event)">*</button>
+                    <button onclick="dis('1')"
+                    onkeydown="myFunction(event)">1</button>
+                    <button onclick="dis('2')"
+                    onkeydown="myFunction(event)">2</button>
+                    <button onclick="dis('3')"
+                    onkeydown="myFunction(event)">3</button>
+                    <button class="right" onclick="dis('-')"
+                    onkeydown="myFunction(event)">-</button>
+                    <button onclick="dis('.')"
+                    onkeydown="myFunction(event)">.</button>
+                    <button onclick="dis('0')"
+                    onkeydown="myFunction(event)">0</button>
+                    <button onclick="solve()"
+                    onkeydown="myFunction(event)">=</button>
+                    <button class="right" onclick="dis('+')"
+                    onkeydown="myFunction(event)">+</button>
+                </div>
+            </div>
+            
+            <div class="clear">
+                <button class="button"  onclick="clr()">C<br>L<br>E<br>A<br>R</button>
+            </div>
+            <script> 
+        
+                // Function that display value 
+                function dis(val) { 
+                    document.getElementById("result").value += val 
+                } 
+          
+                function myFunction(event) { 
+                    if (event.key == '0' || event.key == '1' 
+                        || event.key == '2' || event.key == '3' 
+                        || event.key == '4' || event.key == '5' 
+                        || event.key == '6' || event.key == '7' 
+                        || event.key == '8' || event.key == '9' 
+                        || event.key == '+' || event.key == '-' 
+                        || event.key == '*' || event.key == '/') 
+                        document.getElementById("result").value += event.key; 
+                } 
+          
+                var cal = document.getElementById("calcu"); 
+                cal.onkeyup = function (event) { 
+                    if (event.keyCode === 13) { 
+                        console.log("Enter"); 
+                        let x = document.getElementById("result").value 
+                        console.log(x); 
+                        solve(); 
+                    } 
+                } 
+          
+                // Function that evaluates the digit and return result 
+                function solve() { 
+                    let x = document.getElementById("result").value 
+                    let y = math.evaluate(x) 
+                    document.getElementById("result").value = y 
+                } 
+          
+                // Function that clear the display 
+                function clr() { 
+                    document.getElementById("result").value = "" 
+                } 
+            </script>  
+            </body>
+    </html>
