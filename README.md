@@ -1,2 +1,2 @@
 # Web-Calculator
-Simple calculator running on web, using javascript and html.
+Simple calculator hosted on web, using javascript and html.
